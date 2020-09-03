@@ -22,9 +22,9 @@ cmake_policy(SET CMP0074 NEW)
 endif()
 
 # compiler suit
-SET(CMAKE_C_COMPILER           mpicc)
-SET(CMAKE_CXX_COMPILER         mpicxx)
-SET(CMAKE_Fortran_COMPILER     gfortran)
+SET(CMAKE_C_COMPILER           mpiicc)
+SET(CMAKE_CXX_COMPILER         mpiicpc)
+SET(CMAKE_Fortran_COMPILER     mpiifort)
 
 # external packages
 # uncomment and edit the following lines to specify preferred prefix
@@ -96,9 +96,9 @@ endif ()
 
 ############# find packages #############
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-# mpi
-find_package(MPI REQUIRED)
-include_directories(${MPI_INCLUDE_PATH})
+# mpi, Intel compiler should comment the next two lines, don't know why, but it works for me.
+#find_package(MPI REQUIRED)
+#include_directories(${MPI_INCLUDE_PATH})
 # eigen
 find_package(EIGEN3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
